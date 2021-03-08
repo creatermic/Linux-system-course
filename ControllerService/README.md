@@ -51,7 +51,7 @@ Returns first timer with the given alias. If no timers exist for given alias, re
 - `200 OK` on success
 
 
-If something is missing, no error handling is currently implementing:
+If something is missing, no error handling is currently implemented:
 
 ```json
 {

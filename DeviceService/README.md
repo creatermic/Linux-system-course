@@ -1,4 +1,4 @@
-# Device Registry Service
+# DeviceService 
 
 ## Usage
 
@@ -24,74 +24,14 @@ Subsequent response definitions will only detail the expected value of the `data
 - `200 OK` on success
 
 ```json
-[
-	{
-		"identifier": "floor-lamp",
-		"name": "Floor lamp",
-		"device_type": "switch",
-		"controller_gateway": "192.168.0.2"
-	},
-	{
-		"identifier": "samsung-tv",
-		"name": "Living Room TV",
-		"device_type": "tv",
-		"controller_gateway": "192.168.0.9"
-	}
-]
-```
-
-### Registering a new device
-
-**Definition**
-
-`Post /devices`
-
-**Arguments**
-
-- `"Identifier":string` a globally unique identifier for this device
-- `"name":string` a friendly name for this device
-- `"device_type":string` the type of the device as understood by the client
-- `"controller_gateway":string` the IP address of the device's controller
-
-If a device with the given identifier already exists, the existing device will be overwritten.
-
-**Response**
-
-- `201 Created` on success
-
-```json
 {
-	"identifier": "floor-lamp",
-	"name": "Floor lamp",
-	"device_type": "switch",
-	"controller_gateway": "192.168.0.2"
+  [
+    [\"192.168.8.103\", \"7E\"],
+    [\"192.168.8.105\", \"F6\"],
+    [\"192.168.8.101\", \"DF\"],
+    [\"192.168.8.104\", \"BE\"],
+    [\"192.168.8.102\", \"CA\"]
+  ]
 }
 ```
 
-## Lookup device details
-
-`GET /device/<identifier>`
-
-**Response**
-- `404 Not Found` if the device does not existing
-- `200 OK` on success
-
-```json
-{
-    "identifier": "floor-lamp",
-	"name": "Floor lamp",
-	"device_type": "switch",
-	"controller_gateway": "192.168.0.2"
-}
-```
-
-## Delete a device
-
-**Definition**
-
-`DELETE /devices/<identifier>`
-
-**Response**
-
-- `404 Not Found` if the device does not existing
-- `204 No Content`
