@@ -2,7 +2,7 @@
 
 ## Usage
 
-### GET /timers
+`GET /timers`
 
 Returns all timers.
 
@@ -25,7 +25,7 @@ Returns all timers.
 }
 ```
 
-### GET /alias/<alias>
+`GET /alias/<alias>`
 
 Returns first timer with the given alias. If no timers exist for given alias, returns 404.
 
@@ -44,13 +44,12 @@ Returns first timer with the given alias. If no timers exist for given alias, re
     "deletable": "Integer value, 0 if not deletable otherwise deletable"
 ```
 
-### POST /create?alias=<ALIAS>&uuid=<IP-ADDRESS>&is_online=<0|1>&time=<HH:MM>&date=<DD.MM.YYYY>&status=<off|on>&comment=<STRING>&deletable=<INTEGER>"
+`POST /create?alias=<ALIAS>&uuid=<IP-ADDRESS>&is_online=<0|1>&time=<HH:MM>&date=<DD.MM.YYYY>&status=<off|on>&comment=<STRING>&deletable=<INTEGER>"`
 
 **Response**
 
-```
-200
-```
+- `200 OK` on success
+
 
 If something is missing, no error handling is currently implementing:
 
@@ -59,7 +58,7 @@ If something is missing, no error handling is currently implementing:
     "message": "Internal Server Error"
 }
 ```
-### GET /remove/<tid>
+`GET /remove/<tid>`
 
 **Response**
-null
+- `null`
